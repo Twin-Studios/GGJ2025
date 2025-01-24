@@ -62,9 +62,9 @@ public class PlayerController3D : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+       // Gizmos.color = Color.red;
         //Gizmos.DrawRay(transform.position, moveDirection*5);
-        Gizmos.DrawRay(transform.position, rb.linearVelocity.normalized * 5);
+        //Gizmos.DrawRay(transform.position, rb.linearVelocity.normalized * 5);
     }
 
     // Update is called once per frame
