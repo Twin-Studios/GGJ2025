@@ -66,7 +66,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1586242611752061610}
   - component: {fileID: 5983001893941566759}
-  - component: {fileID: 9175113699371207830}
+  - component: {fileID: 5759053170591691488}
   - component: {fileID: 6059774465261294084}
   - component: {fileID: 2098839037486071854}
   m_Layer: 7
@@ -84,8 +84,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1608237681281293735}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.44821176, y: -0.5465048, z: -0.44624898, w: 0.54890853}
-  m_LocalPosition: {x: 0.19903763, y: -0.2, z: -0.01959653}
+  m_LocalRotation: {x: -0.0132995155, y: -0.041292682, z: -0.0005496903, w: 0.9990585}
+  m_LocalPosition: {x: 0.24, y: 0.7, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -115,7 +115,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 60.000004
+    FieldOfView: 80
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -134,7 +134,7 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
---- !u!114 &9175113699371207830
+--- !u!114 &5759053170591691488
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b5d7c088409d9a40b7b09aa707777f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetOffset: {x: 0, y: 0, z: 0}
+  TargetOffset: {x: 0.24, y: 0, z: 0}
   TrackerSettings:
     BindingMode: 4
     PositionDamping: {x: 1, y: 1, z: 1}
@@ -154,21 +154,21 @@ MonoBehaviour:
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
   OrbitStyle: 1
-  Radius: 10
+  Radius: 3
   Orbits:
     Top:
-      Radius: 3
-      Height: 1.59
+      Radius: 2
+      Height: 1.38
     Center:
       Radius: 3
-      Height: 1
+      Height: 0.7
     Bottom:
-      Radius: 0.2
-      Height: -0.2
+      Radius: 1.66
+      Height: -0.3
     SplineCurvature: 0.5
   RecenteringTarget: 2
   HorizontalAxis:
-    Value: -84.37698
+    Value: 0
     Center: 0
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -178,7 +178,7 @@ MonoBehaviour:
       Time: 2
     Restrictions: 0
   VerticalAxis:
-    Value: -10
+    Value: 17.5
     Center: 17.5
     Range: {x: -10, y: 45}
     Wrap: 0
@@ -219,10 +219,10 @@ MonoBehaviour:
       Size: {x: 0.8, y: 0.8}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
-  TargetOffset: {x: 0, y: 0.78, z: 0}
+  TargetOffset: {x: 0.4, y: 0.78, z: 0}
   Damping: {x: 0.5, y: 0.5}
   Lookahead:
-    Enabled: 1
+    Enabled: 0
     Time: 0.064
     Smoothing: 3.13
     IgnoreY: 0
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_ControllerManager:
     Controllers:
     - Name: Look Orbit X
-      Owner: {fileID: 9175113699371207830}
+      Owner: {fileID: 5759053170591691488}
       Enabled: 1
       Input:
         Input: {fileID: -5630151704836100654, guid: 052faaac586de48259a63d0c4782560b, type: 3}
@@ -253,7 +253,7 @@ MonoBehaviour:
         AccelTime: 0
         DecelTime: 0
     - Name: Look Orbit Y
-      Owner: {fileID: 9175113699371207830}
+      Owner: {fileID: 5759053170591691488}
       Enabled: 1
       Input:
         Input: {fileID: -5630151704836100654, guid: 052faaac586de48259a63d0c4782560b, type: 3}
@@ -262,7 +262,7 @@ MonoBehaviour:
         AccelTime: 0
         DecelTime: 0
     - Name: Orbit Scale
-      Owner: {fileID: 9175113699371207830}
+      Owner: {fileID: 5759053170591691488}
       Enabled: 1
       Input:
         Input: {fileID: 0}
@@ -299,8 +299,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1815810561590221005}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.4482118, y: -0.5465048, z: -0.44624895, w: 0.5489086}
-  m_LocalPosition: {x: 0.19903763, y: -0.2, z: -0.01959653}
+  m_LocalRotation: {x: -0.013299516, y: -0.041292686, z: -0.00054969033, w: 0.9990584}
+  m_LocalPosition: {x: 0.24, y: 0.7, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -339,7 +339,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60.000004
+  field of view: 80
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
