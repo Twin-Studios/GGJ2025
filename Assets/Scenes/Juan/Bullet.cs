@@ -8,13 +8,13 @@ public class Bullet : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
@@ -25,9 +25,11 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent<EnemyController>(out var enemy))
+        var enemy = other.GetComponentInParent<EnemyController>();
+
+        if (enemy != null)
         {
-            enemy.AddForce(rb.linearVelocity* pushForce);
+            enemy.AddForce(rb.linearVelocity * pushForce);
         }
     }
 }
