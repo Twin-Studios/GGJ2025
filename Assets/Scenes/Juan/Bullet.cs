@@ -3,7 +3,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
-    
+    [SerializeField] private float pushForce = 100;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,6 +17,7 @@ public class Bullet : MonoBehaviour
         
     }
 
+
     public void AddForce(Vector3 force)
     {
         rb.AddForce(force);
@@ -25,7 +27,7 @@ public class Bullet : MonoBehaviour
     {
         if(other.TryGetComponent<EnemyController>(out var enemy))
         {
-            enemy.AddForce(rb.linearVelocity*100);
+            enemy.AddForce(rb.linearVelocity* pushForce);
         }
     }
 }
