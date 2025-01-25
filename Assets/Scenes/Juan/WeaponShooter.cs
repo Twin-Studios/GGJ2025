@@ -58,9 +58,16 @@ public class WeaponShooter : MonoBehaviour
         {
             var instantiatedObj = Instantiate(bulletPrefab).GetComponent<Bullet>();
             instantiatedObj.transform.position = spawnPos.position;
-            instantiatedObj.transform.rotation = Quaternion.AngleAxis(angle - offset + spawnPos.rotation.eulerAngles.y, Vector3.up);
+            instantiatedObj.transform.rotation = spawnPos.rotation;
+
+            var rotationEuler = spawnPos.rotation.eulerAngles;
+            rotationEuler.y += angle - offset;
+            instantiatedObj.transform.rotation = Quaternion.Euler(rotationEuler);
+
+            //instantiatedObj.transform.rotation = Quaternion.AngleAxis(angle - offset + spawnPos.rotation.eulerAngles.y, Vector3.up);
             angle += angleStep;
-            instantiatedObj.AddForce(spawnPos.forward * BulletPower);
+
+            instantiatedObj.AddForce(instantiatedObj.transform.forward * BulletPower);
 
             instantiatedObj.transform.localScale = Vector3.one * BulletSize;
 
