@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerController3D : MonoBehaviour
 {
     public Rigidbody rb;
+    [SerializeField] private float maxLinearVelocity = 3f;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float maxYSpeed = 5f;
 
@@ -20,11 +21,13 @@ public class PlayerController3D : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Confined;
         rb = GetComponent<Rigidbody>();
         characterController = GetComponent<CharacterController>();
         actionMap = InputSystem.actions.FindActionMap("Player")["Move"];
         
         currentVerticalSpeed = initialVerticalSpeed;
+
     }
 
 
@@ -70,6 +73,7 @@ public class PlayerController3D : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        rb.maxLinearVelocity = maxLinearVelocity;
         if (actionMap.IsPressed())
         {
             
