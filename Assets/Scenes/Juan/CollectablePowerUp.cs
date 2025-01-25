@@ -4,12 +4,11 @@ using UnityEngine;
 public class CollectablePowerUp : MonoBehaviour
 {
     public PowerUpType Type;
-    public string Name;
     [SerializeField] private TextMeshProUGUI textName;
 
     private void Start()
     {
-        textName.text = "+"+Name;
+        textName.text = "+"+ Type.ToString();
     }
 }
 

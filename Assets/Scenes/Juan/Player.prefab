@@ -1087,7 +1087,7 @@ MonoBehaviour:
   camerasObjects: {fileID: 6031659253475384799}
   rb: {fileID: 8437291398969154698}
   maxLinearVelocity: 4
-  moveSpeed: 25
+  moveSpeed: 50
   maxYSpeed: 2
   moveDirection: {x: 0, y: 0, z: 0}
   PlayerCamera: {fileID: 4170372584261725828}
@@ -1348,6 +1348,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -2843909369972686622, guid: 9dd5086ad45058246bd77061032266c0, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -2843909369972686622, guid: 9dd5086ad45058246bd77061032266c0, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 499e2b02583e0444e826ee7da9b15b02, type: 2}
@@ -1390,6 +1394,10 @@ PrefabInstance:
     - target: {fileID: -788057372281992414, guid: 9dd5086ad45058246bd77061032266c0, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -304555115720022396, guid: 9dd5086ad45058246bd77061032266c0, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -304555115720022396, guid: 9dd5086ad45058246bd77061032266c0, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

@@ -25,7 +25,7 @@ public class PlayerController3D : MonoBehaviour
     private float incrementalVerticalSpeedPerSecond = 0.01f;
 
     private float currentVerticalSpeed = 0;
-    InputAction actionMap;
+    InputAction actionMove;
 
     public Camera PlayerCamera;
 
@@ -41,6 +41,7 @@ public class PlayerController3D : MonoBehaviour
     {
         PlayerInput = GetComponent<PlayerInput>();
         _currentHealth = health;
+       
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -52,11 +53,9 @@ public class PlayerController3D : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         rb = GetComponent<Rigidbody>();
         characterController = GetComponent<CharacterController>();
-        actionMap = PlayerInput.actions["Move"];
-
-      //  GetComponentInChildren<InputHandler>().horizontal = actionMap;
-      //  GetComponentInChildren<InputHandler>().vertical = actionMap;
-
+        actionMove = PlayerInput.actions["Move"];
+        //  GetComponentInChildren<InputHandler>().horizontal = actionMap;
+        //  GetComponentInChildren<InputHandler>().vertical = actionMap;
         currentVerticalSpeed = initialVerticalSpeed;
         camerasObjects.transform.SetParent(null);
 
@@ -64,10 +63,11 @@ public class PlayerController3D : MonoBehaviour
         gameObject.name = $"Player {playerIndex}";
     }
 
+
     private void Move()
     {
         // Get the input from the context
-        moveInput = actionMap.ReadValue<Vector2>();
+        moveInput = actionMove.ReadValue<Vector2>();
 
         // Get the camera's forward and right vectors, ignoring the Y component
         Vector3 cameraForward = PlayerCamera.transform.forward;
@@ -112,14 +112,14 @@ public class PlayerController3D : MonoBehaviour
     void FixedUpdate()
     {
         rb.maxLinearVelocity = maxLinearVelocity;
-        if (actionMap.IsPressed())
+        if (actionMove.IsPressed())
         {
             LookAtCameraDirection();
         }
         else
         {
             moveInput = Vector2.zero;
-            moveDirection = Vector3.zero;
+            //moveDirection = Vector3.zero;
         }
 
         Move();
@@ -135,16 +135,16 @@ public class PlayerController3D : MonoBehaviour
 
         if(rb.linearVelocity.y > maxYSpeed)
         {
-            moveDirection.y = 0;
-            currentVerticalSpeed = 0;
+            //moveDirection.y = 0;
+            //currentVerticalSpeed = 0;
         }
         else
         {
-            currentVerticalSpeed += incrementalVerticalSpeedPerSecond * Time.deltaTime;
-            moveDirection.y = currentVerticalSpeed;
+            //currentVerticalSpeed += incrementalVerticalSpeedPerSecond * Time.deltaTime;
+            //moveDirection.y = currentVerticalSpeed;
 
         }
-        moveDirection.y = 0;
+        //moveDirection.y = 0;
 
         rb.AddForce(moveDirection.normalized*moveSpeed);
         //rb.AddForce(Vector3.up * currentVerticalSpeed);
