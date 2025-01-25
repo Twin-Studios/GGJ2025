@@ -100,7 +100,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AddPrecomputedVelocity: 0
-    - _Alpha: 0.839
+    - _Alpha: 1
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
@@ -110,7 +110,7 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
-    - _Depth: 1
+    - _Depth: 48.09
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -143,7 +143,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0.07385755, g: 0.64508826, b: 0.9063826, a: 1}
     - _Color: {r: 0.07385752, g: 0.6450882, b: 0.9063826, a: 1}
-    - _Depth_Color: {r: 0, g: 0.7222223, b: 1, a: 1}
+    - _Depth_Color: {r: 0.0016019973, g: 0.24304534, b: 0.33962262, a: 0.53333336}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _Foam_Color: {r: 1, g: 1, b: 1, a: 1}
     - _Shore_Color: {r: 0, g: 0.6681614, b: 1, a: 1}
