@@ -6525,6 +6525,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scene
       objectReference: {fileID: 0}
+    - target: {fileID: 3832688834843143478, guid: 5fbbd62933df6f440bdbc63c98784346, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 542c647f-03b0-4c5e-b7ad-1481343b895e
+      objectReference: {fileID: 0}
+    - target: {fileID: 3832688834843143478, guid: 5fbbd62933df6f440bdbc63c98784346, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Join
+      objectReference: {fileID: 0}
     - target: {fileID: 9133987112488219352, guid: 5fbbd62933df6f440bdbc63c98784346, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

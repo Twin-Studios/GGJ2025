@@ -1,4 +1,6 @@
 using System;
+using Assets.Scenes.Juan;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -21,16 +23,29 @@ public class PlayerController3D : MonoBehaviour
     private float currentVerticalSpeed = 0;
     InputAction actionMap;
 
+    [SerializeField]
+    private Camera playerCamera;
+
+    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        int playerIndex = GetComponent<PlayerInput>().playerIndex;
+
         Cursor.lockState = CursorLockMode.Confined;
         rb = GetComponent<Rigidbody>();
         characterController = GetComponent<CharacterController>();
         actionMap = GetComponent<PlayerInput>().actions["Move"];
 
+      //  GetComponentInChildren<InputHandler>().horizontal = actionMap;
+      //  GetComponentInChildren<InputHandler>().vertical = actionMap;
+
         currentVerticalSpeed = initialVerticalSpeed;
         camerasObjects.transform.SetParent(null);
+
+        camerasObjects.name = $"Cameras - Player {playerIndex}";
+        gameObject.name = $"Player {playerIndex}";
     }
 
     private void Move()
@@ -39,11 +54,11 @@ public class PlayerController3D : MonoBehaviour
         moveInput = actionMap.ReadValue<Vector2>();
 
         // Get the camera's forward and right vectors, ignoring the Y component
-        Vector3 cameraForward = Camera.main.transform.forward;
+        Vector3 cameraForward = playerCamera.transform.forward;
         cameraForward.y = 0; // Ignore vertical component
         cameraForward.Normalize(); // Normalize to maintain consistent magnitude
 
-        Vector3 cameraRight = Camera.main.transform.right;
+        Vector3 cameraRight = playerCamera.transform.right;
         cameraRight.y = 0; // Ignore vertical component
         cameraRight.Normalize(); // Normalize to maintain consistent magnitude
 
@@ -58,7 +73,7 @@ public class PlayerController3D : MonoBehaviour
 
     private void LookAtCameraDirection()
     {
-        var cameraRotation = Camera.main.transform.rotation.eulerAngles;
+        var cameraRotation = playerCamera.transform.rotation.eulerAngles;
         cameraRotation.x = 0;
         cameraRotation.z = 0;
         transform.rotation = Quaternion.Euler(cameraRotation);
