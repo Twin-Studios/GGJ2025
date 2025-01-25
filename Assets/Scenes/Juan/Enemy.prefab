@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be27d753963f15240ab13c79322a03a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lookAtconstraint: {fileID: 1547606933660092519}
   maxLinearVelocity: 3
   pushForce: 10
   player: {fileID: 0}
@@ -226,9 +227,7 @@ LookAtConstraint:
   m_UseUpObject: 0
   m_Active: 1
   m_IsLocked: 0
-  m_Sources:
-  - sourceTransform: {fileID: 0}
-    weight: 1
+  m_Sources: []
 --- !u!1 &3734880667794772107
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,7 +623,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 25d20436b9a72dc44a08d84e9c3c26bc, type: 2}
+  - {fileID: 2100000, guid: e2e89b4436f050d429e94fef9d7e69e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

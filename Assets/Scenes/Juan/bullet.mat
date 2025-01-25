@@ -96,6 +96,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AddPrecomputedVelocity: 0
+    - _Alpha: 1
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
@@ -127,7 +128,7 @@ Material:
     - _Surface: 1
     - _WorkflowMode: 1
     - _ZWrite: 0
-    - _power: 0.18
+    - _power: 1.01
     m_Colors:
     - _BaseColor: {r: 0, g: 0.83644104, b: 1, a: 0.2901961}
     - _Color: {r: 0, g: 0.70905733, b: 1, a: 1}
