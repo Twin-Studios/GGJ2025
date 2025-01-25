@@ -4,6 +4,7 @@ using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerController3D : MonoBehaviour
 {
@@ -28,10 +29,18 @@ public class PlayerController3D : MonoBehaviour
 
     public Camera PlayerCamera;
 
+    [SerializeField]
+    private int health = 100;
+
+    [SerializeField]
+    private Slider healthBar;
+
+    private int _currentHealth= 100;
 
     private void Awake()
     {
         PlayerInput = GetComponent<PlayerInput>();
+        _currentHealth = health;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -94,6 +103,11 @@ public class PlayerController3D : MonoBehaviour
         //Gizmos.DrawRay(transform.position, rb.linearVelocity.normalized * 5);
     }
 
+    private void Update()
+    {
+        healthBar.value = (float)_currentHealth / health;
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -136,5 +150,14 @@ public class PlayerController3D : MonoBehaviour
         //rb.AddForce(Vector3.up * currentVerticalSpeed);
         //characterController.Move(moveDirection * Time.deltaTime* moveSpeed);
         //characterController.Move(Vector3.up * Time.deltaTime * currentVerticalSpeed);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        _currentHealth -= damage;
+        if (_currentHealth <= 0)
+        {
+            //TODO: Trigger dead animation.-...
+        }
     }
 }

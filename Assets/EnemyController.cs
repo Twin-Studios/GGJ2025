@@ -55,6 +55,16 @@ public class EnemyController : MonoBehaviour
         rb.AddForce(force, ForceMode.Impulse);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        var player = other.GetComponent<PlayerController3D>();
+        if (player == null) return;
+
+        player.TakeDamage(20);
+
+        Destroy(gameObject);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if(CanMerge == false)
