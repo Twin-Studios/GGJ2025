@@ -393,6 +393,7 @@ MonoBehaviour:
   - {fileID: 3090316949364294357}
   - {fileID: 7250475235881095258}
   playerLayers: 0200000004000000
+  menuCamera: {fileID: 7280803223797178316}
 --- !u!114 &3832688834843143478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,7 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NotificationBehavior: 2
+  m_NotificationBehavior: 0
   m_MaxPlayerCount: 2
   m_AllowJoining: 1
   m_JoinBehavior: 1
