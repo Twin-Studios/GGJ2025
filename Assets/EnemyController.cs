@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
 
@@ -9,6 +10,12 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float maxLinearVelocity = 3f;
     [SerializeField] private float pushForce = 5f;
     [SerializeField] private PlayerController3D player;
+
+    [field:SerializeField]
+    public List<GameObject> Contents { get; private set; }
+
+    public bool CanMerge { get; set; } = true;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,21 +26,10 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator TryGetTarget()
     {
-        while (lookAtconstraint.sourceCount == 0)
+        while (player == null)
         {
-            if (player == null)
-            {
-                player = FindFirstObjectByType<PlayerController3D>();
-                
-            }
-            else
-            {
-                ConstraintSource source = new ConstraintSource();
-                source.sourceTransform = player.transform;
-                source.weight = 1;
-                lookAtconstraint.AddSource(source);
-                break;
-            }
+            player = FindFirstObjectByType<PlayerController3D>();
+
             yield return new WaitForSeconds(0.2f);
         }
         yield return null;
@@ -42,10 +38,8 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(player == null)
-        {
-            return;
-        }
+        if (player == null) return;
+
         rb.maxLinearVelocity = maxLinearVelocity;
         rb.AddForce((player.transform.position - transform.position).normalized* pushForce);
     }
@@ -54,5 +48,32 @@ public class EnemyController : MonoBehaviour
     {
         force.y = transform.position.y;
         rb.AddForce(force, ForceMode.Impulse);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(CanMerge == false)
+            return;
+
+        Debug.Log($"Enemy {name} collided with {collision.gameObject.name}");
+
+        var enemy = collision.gameObject.GetComponent<EnemyController>();
+
+        if (enemy == null)
+            return;
+
+        enemy.CanMerge = false;
+
+
+        foreach (var content in enemy.Contents)
+        {
+            content.transform.SetParent(transform);
+            Contents.Add(content);
+        }
+
+        pushForce += enemy.pushForce;
+
+        Destroy(enemy);
+
     }
 }

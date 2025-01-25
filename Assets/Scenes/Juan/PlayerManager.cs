@@ -21,6 +21,9 @@ namespace Assets.Scenes.Juan
 
         private PlayerInputManager playerInputManager;
 
+        [SerializeField]
+        private GameObject menuCamera;
+
         private void Awake()
         {
             playerInputManager = GetComponent<PlayerInputManager>();
@@ -44,6 +47,8 @@ namespace Assets.Scenes.Juan
 
             player.GetComponentInChildren<CinemachineCamera>().OutputChannel = layerToAdd;
             player.GetComponentInChildren<CinemachineBrain>().ChannelMask = layerToAdd;
+
+            menuCamera.gameObject.SetActive(false);
         }
     }
 }
