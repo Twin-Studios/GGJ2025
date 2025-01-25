@@ -42,6 +42,10 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(player == null)
+        {
+            return;
+        }
         rb.maxLinearVelocity = maxLinearVelocity;
         rb.AddForce((player.transform.position - transform.position).normalized* pushForce);
     }
