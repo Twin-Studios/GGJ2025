@@ -11,6 +11,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float pushForce = 5f;
     [SerializeField] private PlayerController3D player;
 
+    [SerializeField] private float gravity = 9.8f;
+
     [field:SerializeField]
     public List<GameObject> Contents { get; private set; }
 
@@ -20,7 +22,6 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.maxLinearVelocity = maxLinearVelocity;
         StartCoroutine(TryGetTarget());
     }
 
@@ -39,9 +40,13 @@ public class EnemyController : MonoBehaviour
     void FixedUpdate()
     {
         if (player == null) return;
-
-        rb.maxLinearVelocity = maxLinearVelocity;
+       
         rb.AddForce((player.transform.position - transform.position).normalized* pushForce);
+
+        rb.linearVelocity = new Vector3(
+            Mathf.Min(rb.linearVelocity.x, maxLinearVelocity),
+            rb.linearVelocity.y + -1 * gravity * Time.fixedDeltaTime,
+            Mathf.Min(rb.linearVelocity.z, maxLinearVelocity));
     }
 
     public void AddForce(Vector3 force)
@@ -71,9 +76,8 @@ public class EnemyController : MonoBehaviour
             Contents.Add(content);
         }
 
-        pushForce += enemy.pushForce;
+        //pushForce += enemy.pushForce;
 
         Destroy(enemy);
-
     }
 }

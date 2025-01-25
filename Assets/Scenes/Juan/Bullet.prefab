@@ -125,7 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vfxExplosion: {fileID: 2623530863755771489, guid: bfabadda735d8ba4f8fcef39c45a5ab2, type: 3}
   rb: {fileID: 6096059701453361290}
-  pushForce: 100
+  pushForce: 0.1
 --- !u!54 &6096059701453361290
 Rigidbody:
   m_ObjectHideFlags: 0
