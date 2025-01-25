@@ -9,6 +9,7 @@ public class PlayerController3D : MonoBehaviour
 {
     public PlayerInput PlayerInput { get; private set; }
 
+    [SerializeField] private Animator animator;
     [SerializeField] private GameObject camerasObjects;
 
     public Rigidbody rb;
@@ -25,8 +26,7 @@ public class PlayerController3D : MonoBehaviour
     private float currentVerticalSpeed = 0;
     InputAction actionMap;
 
-    [SerializeField]
-    private Camera playerCamera;
+    public Camera PlayerCamera;
 
 
     private void Awake()
@@ -61,11 +61,11 @@ public class PlayerController3D : MonoBehaviour
         moveInput = actionMap.ReadValue<Vector2>();
 
         // Get the camera's forward and right vectors, ignoring the Y component
-        Vector3 cameraForward = playerCamera.transform.forward;
+        Vector3 cameraForward = PlayerCamera.transform.forward;
         cameraForward.y = 0; // Ignore vertical component
         cameraForward.Normalize(); // Normalize to maintain consistent magnitude
 
-        Vector3 cameraRight = playerCamera.transform.right;
+        Vector3 cameraRight = PlayerCamera.transform.right;
         cameraRight.y = 0; // Ignore vertical component
         cameraRight.Normalize(); // Normalize to maintain consistent magnitude
 
@@ -78,9 +78,9 @@ public class PlayerController3D : MonoBehaviour
         }
     }
 
-    private void LookAtCameraDirection()
+    public void LookAtCameraDirection()
     {
-        var cameraRotation = playerCamera.transform.rotation.eulerAngles;
+        var cameraRotation = PlayerCamera.transform.rotation.eulerAngles;
         cameraRotation.x = 0;
         cameraRotation.z = 0;
         transform.rotation = Quaternion.Euler(cameraRotation);
@@ -100,15 +100,19 @@ public class PlayerController3D : MonoBehaviour
         rb.maxLinearVelocity = maxLinearVelocity;
         if (actionMap.IsPressed())
         {
-            
             LookAtCameraDirection();
         }
         else
         {
-            moveInput= Vector2.zero;
+            moveInput = Vector2.zero;
+            moveDirection = Vector3.zero;
         }
 
         Move();
+
+        Debug.Log(rb.linearVelocity.magnitude);
+
+        animator.SetBool("run", rb.linearVelocity.magnitude > Vector3.one.magnitude);
         
 
        // moveDirection.x = moveInput.x * transform.right;

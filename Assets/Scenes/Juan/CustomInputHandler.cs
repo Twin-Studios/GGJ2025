@@ -53,7 +53,7 @@ public class CustomInputHandler : InputAxisControllerBase<CustomInputHandler.Rea
                 else
                     m_Value.x = m_Value.y = action.ReadValue<float>();
 
-                Debug.Log($"Input: {Input.action.name} Value: {m_Value}");
+                //Debug.Log($"Input: {Input.action.name} Value: {m_Value}");
             }
         }
 

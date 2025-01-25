@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] private GameObject vfxExplosion;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float pushForce = 100;
 
@@ -28,6 +29,14 @@ public class Bullet : MonoBehaviour
         if(other.TryGetComponent<EnemyController>(out var enemy))
         {
             enemy.AddForce(rb.linearVelocity* pushForce);
+          
         }
+        Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        Instantiate(vfxExplosion, transform.position, Quaternion.identity);
+      
     }
 }

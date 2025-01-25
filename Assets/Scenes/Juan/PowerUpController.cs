@@ -12,16 +12,16 @@ public class PowerUpController : MonoBehaviour
             switch (collectable.Type)
             {
                 case PowerUpType.BulletPower:
-                    weaponShooter.BulletPower += weaponShooter.BulletPower / 10;
+                    weaponShooter.BulletPower += weaponShooter.BulletPower / 20;
                     break;
                 case PowerUpType.BulletNumber:
                     weaponShooter.BulletNumber += 1;
                     break;
                 case PowerUpType.BulletSize:
-                    weaponShooter.BulletSize += .5f;
+                    weaponShooter.BulletSize += weaponShooter.BulletSize/20;
                     break;
                 case PowerUpType.BulletFireRate:
-                    weaponShooter.BulletFireRate -= weaponShooter.BulletFireRate / 10;
+                    weaponShooter.BulletFireRate -= weaponShooter.BulletFireRate / 20;
                     break;
                 case PowerUpType.Ability_AOEPulse:
                     power_AOEPulse.StartOrRefresh();
