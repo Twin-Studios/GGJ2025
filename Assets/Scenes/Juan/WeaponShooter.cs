@@ -11,16 +11,17 @@ public class WeaponShooter : MonoBehaviour
     public float BulletSize = 1f;
     public float BulletFireRate = 0.2f;
 
-
-
     InputAction fireAction;
 
     private float _nextFireTime = 0;
 
+    [SerializeField]
+    private PlayerController3D playerController3D;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        fireAction = InputSystem.actions.FindActionMap("Player")["Attack"];
+        fireAction = playerController3D.PlayerInput.actions["Attack"];
     }
 
     private void Update()

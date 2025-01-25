@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController3D : MonoBehaviour
 {
+    public PlayerInput PlayerInput { get; private set; }
+
     [SerializeField] private GameObject camerasObjects;
 
     public Rigidbody rb;
@@ -26,17 +28,22 @@ public class PlayerController3D : MonoBehaviour
     [SerializeField]
     private Camera playerCamera;
 
-    
+
+    private void Awake()
+    {
+        PlayerInput = GetComponent<PlayerInput>();
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {
-        int playerIndex = GetComponent<PlayerInput>().playerIndex;
+    { 
+
+        int playerIndex = PlayerInput.playerIndex;
 
         Cursor.lockState = CursorLockMode.Confined;
         rb = GetComponent<Rigidbody>();
         characterController = GetComponent<CharacterController>();
-        actionMap = GetComponent<PlayerInput>().actions["Move"];
+        actionMap = PlayerInput.actions["Move"];
 
       //  GetComponentInChildren<InputHandler>().horizontal = actionMap;
       //  GetComponentInChildren<InputHandler>().vertical = actionMap;

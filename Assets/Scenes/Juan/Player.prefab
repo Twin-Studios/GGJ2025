@@ -412,7 +412,7 @@ MonoBehaviour:
       Enabled: 1
       Input:
         Input: {fileID: -5630151704836100654, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-      InputValue: 200
+      InputValue: 0
       Driver:
         AccelTime: 0
         DecelTime: 0
@@ -421,7 +421,7 @@ MonoBehaviour:
       Enabled: 1
       Input:
         Input: {fileID: -5630151704836100654, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-      InputValue: 200
+      InputValue: 0
       Driver:
         AccelTime: 0
         DecelTime: 0
@@ -707,8 +707,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 9170663180472258747, guid: 5491edfabc682c44ab514341446c0829, type: 3}
   spawnPos: {fileID: 5593966793428178679}
-  bulletForce: 1000
-  fireRate: 0.2
+  BulletPower: 2000
+  BulletNumber: 1
+  BulletSize: 1
+  BulletFireRate: 0.2
+  playerController3D: {fileID: 4148101366312395810}
 --- !u!1 &4576921290941712524
 GameObject:
   m_ObjectHideFlags: 0
