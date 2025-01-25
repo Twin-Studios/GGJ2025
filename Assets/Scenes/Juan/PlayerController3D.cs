@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController3D : MonoBehaviour
 {
+    [SerializeField] private GameObject camerasObjects;
+
     public Rigidbody rb;
     [SerializeField] private float maxLinearVelocity = 3f;
     [SerializeField] private float moveSpeed = 5f;
@@ -18,18 +20,18 @@ public class PlayerController3D : MonoBehaviour
 
     private float currentVerticalSpeed = 0;
     InputAction actionMap;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Cursor.lockState = CursorLockMode.Confined;
         rb = GetComponent<Rigidbody>();
         characterController = GetComponent<CharacterController>();
-        actionMap = InputSystem.actions.FindActionMap("Player")["Move"];
-        
+        actionMap = GetComponent<PlayerInput>().actions["Move"];
+
         currentVerticalSpeed = initialVerticalSpeed;
-
+        camerasObjects.transform.SetParent(null);
     }
-
 
     private void Move()
     {
