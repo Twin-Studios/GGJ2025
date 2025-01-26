@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Assets.Scenes.Juan;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,10 +14,10 @@ public class EnemySpawner : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        FindFirstObjectByType<PlayerInputManager>().onPlayerJoined += OnPlayerJoined;
+        FindFirstObjectByType<PlayerManager>().GameStarted.AddListener(OnGameStarted);
     }
 
-    private void OnPlayerJoined(PlayerInput input)
+    private void OnGameStarted()
     {
         if (_spawningRoutine == null)
         {

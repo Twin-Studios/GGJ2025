@@ -2,6 +2,7 @@ using System;
 using Assets.Scenes.Juan;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -129,9 +130,7 @@ public class PlayerController3D : MonoBehaviour
         animator.SetBool("run", rb.linearVelocity.magnitude > Vector3.one.magnitude);
         
 
-       // moveDirection.x = moveInput.x * transform.right;
-
-       
+       // moveDirection.x = moveInput.x * transform.right;       
 
         if(rb.linearVelocity.y > maxYSpeed)
         {
