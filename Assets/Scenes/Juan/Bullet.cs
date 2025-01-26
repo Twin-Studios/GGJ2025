@@ -1,3 +1,4 @@
+using Assets;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -32,6 +33,14 @@ public class Bullet : MonoBehaviour
         {
             enemy.AddForce(rb.linearVelocity* pushForce);
         }
+
+        var ball = other.GetComponentInParent<BallController>();
+
+        if (ball != null)
+        {
+            ball.AddForce(rb.linearVelocity * pushForce);
+        }
+
         Destroy(gameObject);
     }
 

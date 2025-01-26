@@ -568,7 +568,7 @@ MonoBehaviour:
   BulletPower: 1000
   BulletNumber: 1
   BulletSize: 1
-  BulletFireRate: 0.2
+  BulletFireRate: 1
   playerController3D: {fileID: 4148101366312395810}
 --- !u!1 &3027040857540209040
 GameObject:
