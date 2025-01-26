@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerController3D : MonoBehaviour
@@ -38,6 +39,15 @@ public class PlayerController3D : MonoBehaviour
 
     private int _currentHealth= 100;
 
+    [SerializeField]
+    private LayoutElement layoutElement;
+
+    [SerializeField]
+    private GameObject winnerPanel;
+
+    [SerializeField]
+    private GameObject loserPanel;
+
     private void Awake()
     {
         PlayerInput = GetComponent<PlayerInput>();
@@ -48,7 +58,6 @@ public class PlayerController3D : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     { 
-
         int playerIndex = PlayerInput.playerIndex;
 
         Cursor.lockState = CursorLockMode.Confined;
@@ -62,8 +71,31 @@ public class PlayerController3D : MonoBehaviour
 
         camerasObjects.name = $"Cameras - Player {playerIndex}";
         gameObject.name = $"Player {playerIndex}";
+
+        FindFirstObjectByType<PlayerManager>().OnGameFinished.AddListener(OnGameFinished);
+
+        winnerPanel.gameObject.SetActive(false);
+        loserPanel.gameObject.SetActive(false);
     }
 
+    private void OnGameFinished(PlayerController3D arg0)
+    {
+        if(arg0 == this)
+        {
+            winnerPanel.SetActive(true);
+        }
+        else
+        {
+            loserPanel.SetActive(true);
+        }
+
+        Invoke(nameof(RestartGame), 5f);
+    }
+
+    void RestartGame()
+    {
+        SceneManager.LoadScene("Juan");
+    }
 
     private void Move()
     {
@@ -158,5 +190,10 @@ public class PlayerController3D : MonoBehaviour
         {
             //TODO: Trigger dead animation.-...
         }
+    }
+
+    internal void AddScore(float deltaTime)
+    {
+        layoutElement.preferredWidth += deltaTime;
     }
 }
