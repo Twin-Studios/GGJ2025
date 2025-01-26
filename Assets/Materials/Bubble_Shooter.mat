@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BubbleEnvironment
-  m_Shader: {fileID: -6465566751694194690, guid: 8f9b82500337180439dff287b5c2dc79, type: 3}
+  m_Name: Bubble_Shooter
+  m_Shader: {fileID: -6465566751694194690, guid: 3631f24cbdcd10145af10ad7b3de6994, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -55,14 +55,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 0.13
-    - _Fresnel: 0.94
-    - _Power: 1.99
+    - _Fresnel: 0.47
+    - _Power: 0.16
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Fresnel_Color: {r: 0, g: 0, b: 0, a: 0}
-    - _In: {r: -4.89, g: 1.93, b: 0, a: 0}
-    - _Out: {r: 3.81, g: -1.01, b: 0, a: 0}
+    - _Fresnel_Color: {r: 0, g: 0.73333335, b: 1, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
