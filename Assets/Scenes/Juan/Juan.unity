@@ -1234,6 +1234,10 @@ PrefabInstance:
       propertyPath: m_RenderingLayerMask
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5793171510991142646, guid: 8269d348f2236b24f8d10b0eb6448765, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: bfbbcc04fdc11dd4f86f3a1329125766, type: 2}
     - target: {fileID: 6507901977716847365, guid: 8269d348f2236b24f8d10b0eb6448765, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
