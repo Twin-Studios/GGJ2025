@@ -829,8 +829,8 @@ MonoBehaviour:
   spawnPos: {fileID: 5593966793428178679}
   BulletPower: 1000
   BulletNumber: 1
-  BulletSize: 1
-  BulletFireRate: 0.5
+  BulletSize: 0.4
+  BulletFireRate: 0.2
   playerController3D: {fileID: 4148101366312395810}
   shootSound: {fileID: 8300000, guid: 9e8d16cb2f403a34381109841a4d4466, type: 3}
   volume: 0.8

@@ -19,8 +19,7 @@ public enum PowerUpType
     BulletPower,
     BulletNumber,
     BulletSize,
-    BulletFireRate,
-    Ability_AOEPulse
+    BulletFireRate
 }
 
 

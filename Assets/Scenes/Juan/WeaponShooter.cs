@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -41,11 +42,18 @@ public class WeaponShooter : MonoBehaviour
 
         if (_nextFireTime<0 && fireAction.IsPressed())
         {
-            playerController3D.LookAtCameraDirection();
-            Shoot(BulletNumber);
-            _nextFireTime = BulletFireRate;
+           StartCoroutine(ShotCoroutine());
         }
 
+    }
+
+    private IEnumerator ShotCoroutine()
+    {
+        _nextFireTime = BulletFireRate;
+        playerController3D.LookAtCameraDirection();
+        yield return new WaitForSeconds(0.01f);
+        Shoot(BulletNumber);
+      
     }
 
     //private void Shoot()

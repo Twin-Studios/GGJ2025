@@ -23,9 +23,6 @@ public class PowerUpController : MonoBehaviour
                 case PowerUpType.BulletFireRate:
                     weaponShooter.BulletFireRate -= weaponShooter.BulletFireRate / 2;
                     break;
-                case PowerUpType.Ability_AOEPulse:
-                    power_AOEPulse.StartOrRefresh();
-                    break;
             }
             Destroy(collectable.gameObject);
         }
