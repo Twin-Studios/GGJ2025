@@ -20,6 +20,7 @@ namespace Assets.Scenes.Juan
         public UnityEvent OnPlayerJoined = new();
         public UnityEvent On2PlayersJoined = new();
         public UnityEvent On3PlayersJoined = new();
+        public UnityEvent OnCreditsOpened = new();
 
         private List<PlayerController3D> _players = new List<PlayerController3D>();
 
@@ -121,6 +122,8 @@ namespace Assets.Scenes.Juan
             {
                 On3PlayersJoined?.Invoke();
             }
+
+            input.actions["Credits"].performed += ctx => OnCreditsOpened?.Invoke();
         }
 
         private void StartGame()

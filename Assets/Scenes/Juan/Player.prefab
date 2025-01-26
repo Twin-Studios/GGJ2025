@@ -832,6 +832,8 @@ MonoBehaviour:
   BulletSize: 0.4
   BulletFireRate: 0.2
   playerController3D: {fileID: 4148101366312395810}
+  shootSound: {fileID: 8300000, guid: 9e8d16cb2f403a34381109841a4d4466, type: 3}
+  volume: 0.8
 --- !u!1 &3027040857540209040
 GameObject:
   m_ObjectHideFlags: 0

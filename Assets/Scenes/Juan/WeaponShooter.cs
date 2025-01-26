@@ -19,6 +19,11 @@ public class WeaponShooter : MonoBehaviour
     [SerializeField]
     private PlayerController3D playerController3D;
 
+    [SerializeField]
+    private AudioClip shootSound;
+    [SerializeField]
+    private float volume;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -80,6 +85,9 @@ public class WeaponShooter : MonoBehaviour
             instantiatedObj.transform.localScale = Vector3.one * BulletSize;
 
         }
+
+
+        SFXManager.Instance.PlayOneShot(shootSound, volume);
     }
 
 }
